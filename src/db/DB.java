@@ -16,7 +16,7 @@ public class DB {
 	public static Connection getConnection() {
 		if(conn == null) {
 			try {
-				Properties props = loadPropreties();
+				Properties props = loadProperties();
 				String url = props.getProperty("dburl");
 				conn = DriverManager.getConnection(url, props);
 			} catch (SQLException e) {
@@ -57,13 +57,13 @@ public class DB {
 		}
 	}
 	
-	private static Properties loadPropreties() {
-		try (FileInputStream fs = new FileInputStream("db.properties")){
-			Properties props = new Properties();
+	private static Properties loadProperties() {
+		try(FileInputStream fs = new FileInputStream("db.properties")){
+			Properties props= new Properties();
 			props.load(fs);
 			return props;
-		} catch(IOException e) {
-			throw new DbException("Erro na leitura das informações do banco de dados.");
-		}
+		} catch (IOException e) {
+			throw new DbException(e.getMessage());
+		} 
 	}
 }
