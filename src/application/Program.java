@@ -27,12 +27,12 @@ public class Program {
 		List<Seller> listSeller = sellerDao.findAll();
 		listSeller.forEach(System.out::println);
 		
-		System.out.println("\n=== TESTE 4: seller FindAll ===");
+		System.out.println("\n=== TESTE 4 ===");
 		Seller sellerTest = new Seller(null, "Pedro Lauton", "pedro@gmail.com", new Date(0), 2100.50, dep);
 		sellerDao.insert(sellerTest);
 		System.out.println("New Id: " + sellerTest.getId());
 		
-		System.out.println("\n=== TESTE 5: seller FindAll ===");
+		System.out.println("\n=== TESTE 5 ===");
 		Seller cell = sellerDao.findById(1);
 		cell.setName("Mago Davy Jones");
 		sellerDao.update(cell);
